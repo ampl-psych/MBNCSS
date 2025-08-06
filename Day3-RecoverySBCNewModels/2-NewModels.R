@@ -13,9 +13,6 @@ load("FlankerData.RData")
 # We will use this contrast later
 ADmat <- matrix(c(-1/2,1/2),ncol=1,dimnames=list(NULL,"d"))
 
-# # Load pre-computed sample 
-# load("NewModels/RDMt0nL.RData")
-
 ### Profile plots and augmented data  ----
 
 # When implementing a new model it is easy to make coding mistakes. A useful 
@@ -417,7 +414,7 @@ save(emc,file="samples/newmodel/LBA.RData")
 #   return(out);
 # }
 
-#### GNG DDM (if time) ---
+#### GNG DDM (if time) ----
 
 # Gomez, P., Ratcliff, R., & Perea, M. (2007). A Model of the Go/No-Go Task. 
 # Journal of Experimental Psychology: General, 136(3), 389–413. 
