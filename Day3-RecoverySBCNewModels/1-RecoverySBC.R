@@ -96,7 +96,7 @@ for (i in names(var)) vcov[i,colnames(vcov)!=i] <- cov[[i]]
 # datE2 <- make_data(E2par,design_LBABvE2,n_trials=125)
 
 # # Run by fit_E2E2.R
-# emc <- make_emc(datdesign_LBABvE2_1,type="single")
+# emc <- make_emc(datdesign_LBABvE2,type="single")
 # save(emc,file="E2E2.RData")
 
 # Load fits

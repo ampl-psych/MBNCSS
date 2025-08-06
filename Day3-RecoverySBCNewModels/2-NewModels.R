@@ -28,6 +28,11 @@ ADmat <- matrix(c(-1/2,1/2),ncol=1,dimnames=list(NULL,"d"))
 designRDMt0 <- design(data=dat,model=RDM,
   matchfun=function(d)d$S==d$lR,contrasts=list(lM=ADmat),
   formula=list(B~E+lR,v~lM*CI,t0~lR+E))
+
+p_vectort0 <- c(B=log(2),B_Espeed=log(1),B_lRright=log(1),v=log(2),
+                v_lMd=log(2),v_CIincongruent=log(1),'v_lMd:CIincongruent'=log(1),
+                t0=log(.2),t0_lRright=log(1.5),t0_Espeed=log(0.5))
+
 sdat <- make_data(p_vectort0,designRDMt0,n_trials=5000)
 
 # We see the profiles peak above the data-generating values. By default the 
