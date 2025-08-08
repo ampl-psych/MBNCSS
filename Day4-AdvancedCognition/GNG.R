@@ -68,15 +68,15 @@ dGNG <- design(model=DDMGNG,factors=list(
     contrasts=list(S=cbind(d=c(-1,1))),formula=list(v~S,a~1, Z~1, t0~1))
 
 # and more realistic error-prone responding, and also a bias to nogo
-p[] <- c(0,1,log(2),qnorm(.4),log(.3))
+p[] <- c(0.5,1,log(2),qnorm(.4),log(.3))
 
 # Make lots of data
-dat <- make_data(p,dGNG,1e4)
+dat <- make_data(p,dGNG,200)
 
 # Now we have errors, more so for go
 tapply(dat$S==dat$R,dat$S,mean)
 
-# and fewer timeouts, btu still quite a few
+# and fewer timeouts, but still quite a few
 mean(is.na(dat$rt[dat$S=="go"]))
 
 # Truncation clear at 2sec
@@ -93,10 +93,12 @@ emc <- make_emc(dat,dGNG,type="single")
 
 
 # NB: 8x or so slower than standard DDM
-fit(emc,fileName="gng1.RData")
+fit(emc,fileName="gng3.RData")
 
 
 load("gng1.RData")
+load("gng2.RData")
+load("gng3.RData")
 recovery(emc,p)
 
 # Fit is excellent to RT distributions
